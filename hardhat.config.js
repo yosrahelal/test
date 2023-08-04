@@ -1,6 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
-require("@nomiclabs/hardhat-etherscan");
 /** @type import('hardhat/config').HardhatUserConfig */
 
 module.exports = {
@@ -38,6 +37,16 @@ module.exports = {
     apiKey: {
       // Linea testnet 
       lineaTestnet : process.env.LINEA_TESTNET_KEY_API,
-    }
+    },
+    customChains: [
+      {
+        network: "lineaTestnet",
+        chainId: 59140,
+        urls: {
+          apiURL: "https://explorer.goerli.linea.build/api",
+          browserURL: "https://explorer.goerli.linea.build"
+        }
+      }
+    ]
   }
 };
